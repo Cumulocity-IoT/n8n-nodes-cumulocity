@@ -1,10 +1,24 @@
 {
   "name": "n8n-nodes-cumulocity",
   "version": "1.0.0",
-  "description": "Cumulocity node for n8n",
+  "description": "n8n community node for Cumulocity REST API orchestration and multi-agent AI workflows.",
+  "keywords": [
+    "n8n-community-node-package",
+    "cumulocity",
+    "iot",
+    "n8n"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Cumulocity-IoT/n8n-nodes-cumulocity",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cumulocity-IoT/n8n-nodes-cumulocity.git"
+  },
   "main": "dist/nodes/Cumulocity/Cumulocity.node.js",
   "scripts": {
-    "build": "tsc && copyfiles -u 0 nodes/**/*.svg dist/"
+    "build": "tsc && copyfiles -u 0 nodes/**/*.svg dist/",
+    "lint": "eslint . --ext .ts",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist"
@@ -21,9 +35,10 @@
   "devDependencies": {
     "@types/node": "^18.0.0",
     "copyfiles": "^2.4.1",
+    "n8n-workflow": "^1.0.0",
     "typescript": "^5.0.0"
   },
-  "dependencies": {
-    "n8n-workflow": "^1.0.0"
+  "peerDependencies": {
+    "n8n-workflow": "*"
   }
 }
